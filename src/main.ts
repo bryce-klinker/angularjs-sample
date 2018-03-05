@@ -1,4 +1,13 @@
 import * as angular from 'angular';
-import {MODULE_NAME} from './shared';
+import '../node_modules/angular-material/angular-material.css';
 
-angular.module(MODULE_NAME, ['ngMaterial']);
+import customers from './customers/module';
+import {COMMON_DEPENDENCIES, NAMESPACE} from './shared';
+import routing from './routing';
+
+angular.module(`${NAMESPACE}.main`, [
+    ...COMMON_DEPENDENCIES,
+    customers
+])
+    .run(routing)
+    .name;

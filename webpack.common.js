@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
@@ -8,9 +7,12 @@ module.exports = {
     main: './src/main.ts'
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist'),
     filename: '[name].min.js',
     sourceMapFilename: '[file].map'
+  },
+  resolve: {
+    extensions: ['.ts', '.js', '.html', '.scss', '.css']
   },
   module: {
     rules: [
@@ -53,7 +55,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: path.resolve(__dirname, 'src', 'index.html'),
+      filename: 'index.html',
+      template: path.join(__dirname, 'src', 'index.html'),
       inject: 'body'
     })
   ]
