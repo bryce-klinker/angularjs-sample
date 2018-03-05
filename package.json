@@ -7,7 +7,9 @@
     "test": "karma start",
     "build:prod": "webpack --mode production --config webpack.prod.js --progress --colors",
     "build:dev": "webpack --mode development --config webpack.dev.js --progress --colors",
-    "start": "webpack-dev-server --mode development --config webpack.dev.js --inline"
+    "start": "webpack-dev-server --mode development --config webpack.dev.js --inline",
+    "pree2e": "webdriver-manager update",
+    "e2e": "protractor"
   },
   "repository": {
     "type": "git",
